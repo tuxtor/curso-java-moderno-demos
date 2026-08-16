@@ -24,6 +24,10 @@ build/
 # Log files
 *.log
 
+# AppCDS artifacts (jep310-appcds demo)
+*.jsa
+classes.lst
+
 # IntelliJ IDEA
 .idea/
 *.iml
