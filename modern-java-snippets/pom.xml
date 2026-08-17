@@ -28,6 +28,17 @@
                 <version>3.13.0</version>
                 <configuration>
                     <release>25</release>
+                    <compilerArgs>
+                        <!-- JEP 338 (Vector API) lives in the incubator module
+                             jdk.incubator.vector, which is not on the default
+                             module graph. -->
+                        <arg>--add-modules</arg>
+                        <arg>jdk.incubator.vector</arg>
+                        <!-- JEP 437 (Structured Concurrency) is still a preview
+                             API (java.util.concurrent.StructuredTaskScope) on
+                             this JDK. -->
+                        <arg>--enable-preview</arg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
             <plugin>
