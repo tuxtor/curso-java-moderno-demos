@@ -4,13 +4,8 @@ public class JEP325 {
 
     public static void main(String[] args) {
         System.out.println(oldSwitchStatement("WEDNESDAY"));
-        System.out.println(newSwitchExpression("WEDNESDAY"));
-
         System.out.println(oldSwitchStatement("SATURDAY"));
-        System.out.println(newSwitchExpression("SATURDAY"));
-
         System.out.println(oldSwitchWithBlockBody("TUESDAY"));
-        System.out.println(newSwitchWithYield("TUESDAY"));
     }
 
     private static String oldSwitchStatement(String day) {
@@ -37,17 +32,6 @@ public class JEP325 {
         return day + " (old) -> " + numLetters;
     }
 
-    private static String newSwitchExpression(String day) {
-        int numLetters = switch (day) {
-            case "MONDAY", "FRIDAY", "SUNDAY" -> 6;
-            case "TUESDAY" -> 7;
-            case "THURSDAY", "SATURDAY" -> 8;
-            case "WEDNESDAY" -> 9;
-            default -> 0;
-        };
-        return day + " (new) -> " + numLetters;
-    }
-
     private static String oldSwitchWithBlockBody(String day) {
         String result;
         switch (day) {
@@ -61,17 +45,5 @@ public class JEP325 {
                 result = day + " is not Tuesday";
         }
         return "(old) " + result;
-    }
-
-    private static String newSwitchWithYield(String day) {
-        String result = switch (day) {
-            case "TUESDAY" -> {
-                StringBuilder sb = new StringBuilder();
-                sb.append(day).append(" is day #2");
-                yield sb.toString();
-            }
-            default -> day + " is not Tuesday";
-        };
-        return "(new) " + result;
     }
 }

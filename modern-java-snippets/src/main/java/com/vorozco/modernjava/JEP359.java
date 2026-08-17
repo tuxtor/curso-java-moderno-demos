@@ -6,20 +6,12 @@ public class JEP359 {
 
     public static void main(String[] args) {
         System.out.println(oldVerboseClass());
-        System.out.println(newRecord());
-
         System.out.println(oldEqualsComparison());
-        System.out.println(newEqualsComparison());
     }
 
     private static String oldVerboseClass() {
         OldPoint p = new OldPoint(3, 4);
         return "(old) " + p;
-    }
-
-    private static String newRecord() {
-        NewPoint p = new NewPoint(3, 4);
-        return "(new) " + p;
     }
 
     private static String oldEqualsComparison() {
@@ -28,16 +20,6 @@ public class JEP359 {
         return "(old) equals: " + p1.equals(p2) + ", hashCode match: " + (p1.hashCode() == p2.hashCode());
     }
 
-    private static String newEqualsComparison() {
-        NewPoint p1 = new NewPoint(1, 2);
-        NewPoint p2 = new NewPoint(1, 2);
-        return "(new) equals: " + p1.equals(p2) + ", hashCode match: " + (p1.hashCode() == p2.hashCode());
-    }
-
-    /**
-     * Before JEP 359, an immutable data carrier required hand-written
-     * fields, constructor, accessors, equals(), hashCode() and toString().
-     */
     private static final class OldPoint {
         private final int x;
         private final int y;
@@ -76,13 +58,5 @@ public class JEP359 {
         public String toString() {
             return "OldPoint[x=" + x + ", y=" + y + "]";
         }
-    }
-
-    /**
-     * JEP 359: a record declares the same immutable data carrier - fields,
-     * canonical constructor, accessors, equals(), hashCode() and toString()
-     * are all generated automatically.
-     */
-    private record NewPoint(int x, int y) {
     }
 }

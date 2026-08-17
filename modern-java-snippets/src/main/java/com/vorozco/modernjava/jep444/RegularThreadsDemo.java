@@ -3,12 +3,6 @@ package com.vorozco.modernjava.jep444;
 import java.time.Duration;
 import java.time.Instant;
 
-/**
- * Before JEP 444, concurrent blocking work meant using platform threads,
- * each backed 1:1 by an OS thread. OS threads are a scarce, relatively
- * expensive resource (stack memory, kernel scheduling), so applications
- * typically cap how many run at once - here, just 8.
- */
 public class RegularThreadsDemo {
 
     private static final int THREAD_COUNT = 8;

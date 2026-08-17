@@ -1,7 +1,6 @@
 package com.vorozco.modernjava;
 
 import com.vorozco.modernjava.jep444.RegularThreadsDemo;
-import com.vorozco.modernjava.jep444.VirtualThreadsDemo;
 
 import java.time.Duration;
 
@@ -12,10 +11,5 @@ public class JEP444 {
                 + " platform threads, each sleeping 30s...");
         Duration platformElapsed = RegularThreadsDemo.run();
         System.out.println("(old) done in " + platformElapsed.toSeconds() + "s");
-
-        System.out.println("(new) starting " + VirtualThreadsDemo.threadCount()
-                + " virtual threads, each sleeping 30s...");
-        Duration virtualElapsed = VirtualThreadsDemo.run();
-        System.out.println("(new) done in " + virtualElapsed.toSeconds() + "s");
     }
 }

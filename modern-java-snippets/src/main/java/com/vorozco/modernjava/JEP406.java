@@ -7,15 +7,9 @@ public class JEP406 {
 
         for (Object input : inputs) {
             System.out.println("(old) " + oldDescribe(input));
-            System.out.println("(new) " + newDescribe(input));
         }
     }
 
-    /**
-     * Before JEP 406 (finalized as JEP 441 in JDK 21), matching an Object
-     * against several types meant a chain of instanceof checks with
-     * explicit casts, plus a separate, easy-to-forget null check up front.
-     */
     private static String oldDescribe(Object obj) {
         if (obj == null) {
             return "it's null";
@@ -31,20 +25,5 @@ public class JEP406 {
         } else {
             return "something else";
         }
-    }
-
-    /**
-     * JEP 406 lets switch use type patterns directly, combine them with a
-     * boolean guard via 'when', and even handle 'case null' inline instead
-     * of a separate check before the switch.
-     */
-    private static String newDescribe(Object obj) {
-        return switch (obj) {
-            case null -> "it's null";
-            case Integer i -> "an Integer: " + i;
-            case String s when s.length() > 5 -> "a long String: " + s;
-            case String s -> "a short String: " + s;
-            default -> "something else";
-        };
     }
 }
