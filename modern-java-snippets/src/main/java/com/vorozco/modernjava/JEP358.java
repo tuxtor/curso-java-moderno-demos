@@ -4,12 +4,8 @@ public class JEP358 {
 
   public static void main(String[] args) {
     Person person = new Person(null);
-    try {
-      int length = person.getAddress().getCity().length();
-      IO.println("City length " + length);
-    } catch (NullPointerException e) {
-      IO.println(e.getMessage());
-    }
+    int length = person.getAddress().getCity().length();
+    System.out.println("City length " + length);
   }
 
   private static class Person {
