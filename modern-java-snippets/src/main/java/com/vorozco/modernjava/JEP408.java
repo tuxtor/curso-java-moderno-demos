@@ -1,15 +1,17 @@
 package com.vorozco.modernjava;
 
 import com.sun.net.httpserver.HttpServer;
+import com.sun.net.httpserver.SimpleFileServer;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
+import java.nio.file.Path;
 
 public class JEP408 {
 
   public static void main(String[] args) throws IOException {
-    System.out.println(oldFileServer());
+    System.out.println(newFileServer());
   }
 
   private static String oldFileServer() throws IOException {
@@ -25,4 +27,14 @@ public class JEP408 {
     String result = "(old) server started on port " + server.getAddress().getPort();
     return result;
   }
+
+  private static String newFileServer() throws IOException {
+    Path root = Path.of(".").toAbsolutePath();
+    HttpServer server = SimpleFileServer.createFileServer(
+        new InetSocketAddress(0), root, SimpleFileServer.OutputLevel.NONE);
+    server.start();
+    String result = "(new) server started on port " + server.getAddress().getPort();
+    return result;
+  }
+
 }
