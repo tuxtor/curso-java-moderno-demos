@@ -5,7 +5,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-import java.util.concurrent.StructuredTaskScope;
+//import java.util.concurrent.StructuredTaskScope;
 
 public class JEP437 {
 
@@ -46,7 +46,7 @@ public class JEP437 {
       return "order-99";
     };
 
-    try (var scope = StructuredTaskScope.open(StructuredTaskScope.Joiner.<String>awaitAll())) {
+    /*try (var scope = StructuredTaskScope.open(StructuredTaskScope.Joiner.<String>awaitAll())) {
       var userTask = scope.fork(fetchUser);
       var orderTask = scope.fork(fetchOrder);
 
@@ -56,7 +56,8 @@ public class JEP437 {
       var order = orderTask.state() == StructuredTaskScope.Subtask.State.SUCCESS ? orderTask.get() : "Bad order";
 
       return user + "/" + order;
-    }
+    }*/
+    return null;
 
   }
 

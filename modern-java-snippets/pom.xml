@@ -30,23 +30,21 @@
                     <release>25</release>
                 </configuration>
             </plugin>
-            <!--plugin>
+            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.5.0</version>
                 <configuration>
                     <mainClass>com.vorozco.modernjava.JEP110</mainClass>
                 </configuration>
-            </plugin-->
-<plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-javadoc-plugin</artifactId>
-    <configuration>
-        <show>private</show>
-    </configuration>
-</plugin>
-
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <show>private</show>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
-
 </project>
