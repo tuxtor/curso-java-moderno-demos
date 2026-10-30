@@ -31,4 +31,4 @@ mvn clean package
 mvn exec:exec             # runs java with --module-path, launching app.module/com.vorozco.app.JEP201
 ```
 
-There are no test suites or linters configured in this repository.
+`modern-java-snippets` has JUnit 6 tests (`mvn test`, add `-DexcludedGroups=network` to skip the internet-dependent JEP110 test). There are no linters configured in this repository.
