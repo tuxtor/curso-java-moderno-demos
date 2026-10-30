@@ -2,10 +2,10 @@ package com.vorozco.modernjava;
 
 public class JEP440 {
 
-  private record Point(int x, int y) {
+  record Point(int x, int y) {
   }
 
-  private record Line(Point start, Point end) {
+  record Line(Point start, Point end) {
   }
 
   public static void main(String[] args) {
@@ -18,7 +18,7 @@ public class JEP440 {
     System.out.println(newLineDescribe(line));
   }
 
-  private static String oldPointDescribe(Object obj) {
+  static String oldPointDescribe(Object obj) {
     if (obj instanceof Point p) {
       int x = p.x();
       int y = p.y();
@@ -27,14 +27,14 @@ public class JEP440 {
     return "(old) not a Point";
   }
 
-  private static String newPointDescribe(Object obj) {
+  static String newPointDescribe(Object obj) {
     if (obj instanceof Point(int x, int y)) {
       return "(new) Point(" + x + ", " + y + ")";
     }
     return "(new) not a Point";
   }
 
-  private static String oldLineDescribe(Object obj) {
+  static String oldLineDescribe(Object obj) {
     if (obj instanceof Line line) {
       Point start = line.start();
       Point end = line.end();
@@ -47,7 +47,7 @@ public class JEP440 {
     return "(old) not a Line";
   }
 
-  private static String newLineDescribe(Object obj) {
+  static String newLineDescribe(Object obj) {
     if (obj instanceof Line(Point(int x1, int y1), Point(int x2, int y2))) {
       return "(new) Line from (" + x1 + "," + y1 + ") to (" + x2 + "," + y2 + ")";
     }

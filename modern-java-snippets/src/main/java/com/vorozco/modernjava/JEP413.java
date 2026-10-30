@@ -24,7 +24,7 @@ public class JEP413 {
    * System.out.println(result); // 5
    * }</pre>
    */
-  private static int oldDocumentedAdd(int a, int b) {
+  static int oldDocumentedAdd(int a, int b) {
     return a + b;
   }
 
@@ -40,7 +40,7 @@ public class JEP413 {
    * System.out.println(result); // 5
    * }
    */
-  private static int newDocumentedAdd(int a, int b) {
+  static int newDocumentedAdd(int a, int b) {
     return a + b;
   }
 }

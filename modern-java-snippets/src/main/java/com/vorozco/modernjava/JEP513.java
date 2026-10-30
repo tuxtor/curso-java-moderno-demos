@@ -18,11 +18,11 @@ public class JEP513 {
     }
   }
 
-  private static String oldValidatedAccount(int balance) {
+  static String oldValidatedAccount(int balance) {
     return new OldSavingsAccount(balance).toString();
   }
 
-  private static String newValidatedAccount(int balance) {
+  static String newValidatedAccount(int balance) {
     return new NewSavingsAccount(balance).toString();
   }
 

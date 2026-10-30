@@ -16,32 +16,32 @@ public class JEP323 {
     System.out.println(newAnnotatedParamLambda());
   }
 
-  private static String oldSingleParamLambda() {
+  static String oldSingleParamLambda() {
     Function<String, String> shout = (String s) -> s.toUpperCase();
     return shout.apply("hello jep 323");
   }
 
-  private static String newSingleParamLambda() {
+  static String newSingleParamLambda() {
     Function<String, String> shout = (var s) -> s.toUpperCase();
     return shout.apply("hello jep 323");
   }
 
-  private static String oldMultiParamLambda() {
+  static String oldMultiParamLambda() {
     BiFunction<Integer, Integer, Integer> sum = (Integer a, Integer b) -> a + b;
     return "sum = " + sum.apply(3, 4);
   }
 
-  private static String newMultiParamLambda() {
+  static String newMultiParamLambda() {
     BiFunction<Integer, Integer, Integer> sum = (var a, var b) -> a + b;
     return "sum = " + sum.apply(3, 4);
   }
 
-  private static String oldAnnotatedParamLambda() {
+  static String oldAnnotatedParamLambda() {
     Function<String, String> trim = (final String s) -> s.trim();
     return "[" + trim.apply("  padded  ") + "]";
   }
 
-  private static String newAnnotatedParamLambda() {
+  static String newAnnotatedParamLambda() {
     Function<String, String> trim = (final var s) -> s.trim();
     return "[" + trim.apply("  padded  ") + "]";
   }

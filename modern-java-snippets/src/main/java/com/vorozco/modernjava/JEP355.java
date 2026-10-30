@@ -14,13 +14,13 @@ public class JEP355 {
     System.out.println(newFormattedString("Copilot"));
   }
 
-  private static String oldMultiLineString() {
+  static String oldMultiLineString() {
     return "Line one\n" +
         "Line two\n" +
         "Line three";
   }
 
-  private static String newMultiLineString() {
+  static String newMultiLineString() {
     return """
         Line one
         Line two
@@ -29,21 +29,21 @@ public class JEP355 {
 
   }
 
-  private static String oldStringWithQuotes() {
+  static String oldStringWithQuotes() {
     return "He said \"Hello, world!\" and left.";
   }
 
-  private static String newStringWithQuotes() {
+  static String newStringWithQuotes() {
     return """
           He said "Hello, world!" and left.
         """;
   }
 
-  private static String oldFormattedString(String name) {
+  static String oldFormattedString(String name) {
     return String.format("Hello, %s!%nWelcome to JEP 355.", name);
   }
 
-  private static String newFormattedString(String name) {
+  static String newFormattedString(String name) {
     return """
         Hello, %s!
         Welcome to JEP 355.""".formatted(name);

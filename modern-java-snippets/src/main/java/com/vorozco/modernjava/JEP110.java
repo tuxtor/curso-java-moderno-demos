@@ -18,7 +18,7 @@ public class JEP110 {
     System.out.println(newHttpClientDemo());
   }
 
-  private static String oldHttpClientDemo() {
+  static String oldHttpClientDemo() {
     try {
       URL url = new URL(API_URL);
       HttpURLConnection connection = (HttpURLConnection) url.openConnection();

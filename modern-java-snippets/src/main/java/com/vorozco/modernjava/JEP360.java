@@ -13,7 +13,7 @@ public class JEP360 {
     System.out.println("(old) " + oldDescribe(oldBike));
   }
 
-  private static String oldDescribe(OldVehicle vehicle) {
+  static String oldDescribe(OldVehicle vehicle) {
 
     return switch (vehicle) {
       case OldCar car -> car.model() + " is a car with " + car.doors() + " doors";

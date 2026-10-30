@@ -11,7 +11,7 @@ public class JEP406 {
     }
   }
 
-  private static String oldDescribe(Object obj) {
+  static String oldDescribe(Object obj) {
     if (obj == null) {
       return "it's null";
     } else if (obj instanceof Integer) {
@@ -28,7 +28,7 @@ public class JEP406 {
     }
   }
 
-  private static String newDescribe(Object obj) {
+  static String newDescribe(Object obj) {
 
     return switch (obj) {
       case Integer i -> "an Integer: " + i;

@@ -13,7 +13,7 @@ public class JEP456 {
     newForeachLoop();
   }
 
-  private static void oldForeachLoop() {
+  static void oldForeachLoop() {
     Map<String, Integer> jvmDict = Map.of("Java", 1995, "Kotlin", 2016, "Scala", 2004);
     List<String> languages = new ArrayList<>();
     for (var lang : jvmDict.keySet()) {
@@ -22,7 +22,7 @@ public class JEP456 {
     System.out.println(languages);
   }
 
-  private static void newForeachLoop() {
+  static void newForeachLoop() {
     Map<String, Integer> jvmDict = Map.of("Java", 1995, "Kotlin", 2016, "Scala", 2004);
     List<String> languages = new ArrayList<>();
     jvmDict.forEach((key, _) -> languages.add(key));

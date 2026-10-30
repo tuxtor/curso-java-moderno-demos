@@ -14,7 +14,7 @@ public class JEP305 {
     System.out.println(newCombinedCondition("Hello, JEP 305!"));
   }
 
-  private static String oldInstanceofWithCast(Object obj) {
+  static String oldInstanceofWithCast(Object obj) {
     if (obj instanceof String) {
       String s = (String) obj;
       return "(old) String of length " + s.length();
@@ -22,14 +22,14 @@ public class JEP305 {
     return "(old) not a String";
   }
 
-  private static String newInstanceofWithCast(Object obj) {
+  static String newInstanceofWithCast(Object obj) {
     if (obj instanceof String s) {
       return "(new) String of length " + s.length();
     }
     return "(new) not a String";
   }
 
-  private static String oldCombinedCondition(Object obj) {
+  static String oldCombinedCondition(Object obj) {
     if (obj instanceof String) {
       String s = (String) obj;
       if (s.length() > 5) {
@@ -39,7 +39,7 @@ public class JEP305 {
     return "(old) short or not a string";
   }
 
-  private static String newCombinedCondition(Object obj) {
+  static String newCombinedCondition(Object obj) {
     if (obj instanceof String s && s.length() > 5) {
       return "(new) long string: " + s;
     }

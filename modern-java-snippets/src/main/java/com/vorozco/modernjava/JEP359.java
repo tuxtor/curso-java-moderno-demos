@@ -12,23 +12,23 @@ public class JEP359 {
     System.out.println(newEqualsComparison());
   }
 
-  private static String oldVerboseClass() {
+  static String oldVerboseClass() {
     OldPoint p = new OldPoint(3, 4);
     return "(old) " + p;
   }
 
-  private static String newVerboseClass() {
+  static String newVerboseClass() {
     NewPoint p = new NewPoint(3, 4);
     return "(new) " + p;
   }
 
-  private static String oldEqualsComparison() {
+  static String oldEqualsComparison() {
     OldPoint p1 = new OldPoint(1, 2);
     OldPoint p2 = new OldPoint(1, 2);
     return "(old) equals: " + p1.equals(p2) + ", hashCode match: " + (p1.hashCode() == p2.hashCode());
   }
 
-  private static String newEqualsComparison() {
+  static String newEqualsComparison() {
     NewPoint p1 = new NewPoint(1, 2);
     NewPoint p2 = new NewPoint(1, 2);
     return "(new) equals: " + p1.equals(p2) + ", hashCode match: " + (p1.hashCode() == p2.hashCode());

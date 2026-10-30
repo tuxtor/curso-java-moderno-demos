@@ -14,7 +14,7 @@ public class JEP408 {
     System.out.println(newFileServer());
   }
 
-  private static String oldFileServer() throws IOException {
+  static String oldFileServer() throws IOException {
     HttpServer server = HttpServer.create(new InetSocketAddress(0), 0);
     server.createContext("/", exchange -> {
       byte[] bytes = "Hello from JEP 408!".getBytes();
@@ -28,7 +28,7 @@ public class JEP408 {
     return result;
   }
 
-  private static String newFileServer() throws IOException {
+  static String newFileServer() throws IOException {
     Path root = Path.of(".").toAbsolutePath();
     HttpServer server = SimpleFileServer.createFileServer(
         new InetSocketAddress(0), root, SimpleFileServer.OutputLevel.NONE);

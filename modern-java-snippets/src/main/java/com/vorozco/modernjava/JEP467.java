@@ -14,7 +14,7 @@ public class JEP467 {
    * @param n the number to compute the factorial of
    * @return {@code n!}
    */
-  private static long oldDocumentedFactorial(int n) {
+  static long oldDocumentedFactorial(int n) {
     return n <= 1 ? 1 : n * oldDocumentedFactorial(n - 1);
   }
 
@@ -30,7 +30,7 @@ public class JEP467 {
   ///
   /// @param n the number to compute the factorial of
   /// @return {@code n!} ///
-  private static long newDocumentedFactorial(int n) {
+  static long newDocumentedFactorial(int n) {
     return n <= 1 ? 1 : n * oldDocumentedFactorial(n - 1);
   }
 }

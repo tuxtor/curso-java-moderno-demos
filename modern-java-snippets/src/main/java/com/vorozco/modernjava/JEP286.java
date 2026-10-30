@@ -20,27 +20,27 @@ public class JEP286 {
     System.out.println(newTryWithResources());
   }
 
-  private static String oldPrimitiveDeclaration() {
+  static String oldPrimitiveDeclaration() {
     int count = 42;
     return "count = " + count;
   }
 
-  private static String newPrimitiveDeclaration() {
+  static String newPrimitiveDeclaration() {
     var count = 42;
     return "count = " + count;
   }
 
-  private static String oldObjectDeclaration() {
+  static String oldObjectDeclaration() {
     String message = "Hello, JEP 286!";
     return message;
   }
 
-  private static String newObjectDeclaration() {
+  static String newObjectDeclaration() {
     var message = "Hello, JEP 286!";
     return message;
   }
 
-  private static String oldForEachLoop() {
+  static String oldForEachLoop() {
     List<String> languages = List.of("Java", "Kotlin", "Scala");
     StringBuilder result = new StringBuilder();
     for (String language : languages) {
@@ -49,7 +49,7 @@ public class JEP286 {
     return result.toString().trim();
   }
 
-  private static String newForEachLoop() {
+  static String newForEachLoop() {
     var languages = List.of("Java", "Kotlin", "Scala");
     var result = new StringBuilder();
     for (var language : languages) {
@@ -58,7 +58,7 @@ public class JEP286 {
     return result.toString().trim();
   }
 
-  private static String oldTryWithResources() {
+  static String oldTryWithResources() {
     try (StringReader reader = new StringReader("data")) {
       int firstChar = reader.read();
       return "First char: " + (char) firstChar;
@@ -67,7 +67,7 @@ public class JEP286 {
     }
   }
 
-  private static String newTryWithResources() {
+  static String newTryWithResources() {
     try (var reader = new StringReader("data")) {
       int firstChar = reader.read();
       return "First char: " + (char) firstChar;

@@ -13,7 +13,7 @@ public class JEP325 {
     System.out.println(newSwitchWithBlockBody("TUESDAY"));
   }
 
-  private static String oldSwitchStatement(String day) {
+  static String oldSwitchStatement(String day) {
     int numLetters;
     switch (day) {
       case "MONDAY":
@@ -37,7 +37,7 @@ public class JEP325 {
     return day + " (old) -> " + numLetters;
   }
 
-  private static String newSwitchStatement(String day) {
+  static String newSwitchStatement(String day) {
     int numLetters = switch (day) {
       case "MONDAY", "FRIDAY", "SUNDAY" -> 6;
       case "TUESDAY" -> 7;
@@ -48,7 +48,7 @@ public class JEP325 {
     return day + " (new) -> " + numLetters;
   }
 
-  private static String oldSwitchWithBlockBody(String day) {
+  static String oldSwitchWithBlockBody(String day) {
     String result;
     switch (day) {
       case "TUESDAY": {
@@ -63,7 +63,7 @@ public class JEP325 {
     return "(old) " + result;
   }
 
-  private static String newSwitchWithBlockBody(String day) {
+  static String newSwitchWithBlockBody(String day) {
     String result = switch (day) {
       case "TUESDAY" -> {
         StringBuilder sb = new StringBuilder();
